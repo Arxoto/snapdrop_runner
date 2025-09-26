@@ -3,8 +3,8 @@ const http = require('http');
 const httpProxy = require('http-proxy');
 const handler = require('serve-handler');
 
-const { getAddressList } = require('./utils/address');
-const { printQrcode } = require('./utils/qrcode');
+const { getAddressList } = require('./utils/address.mjs');
+const { printQrcode } = require('./utils/qrcode.mjs');
 
 // run server
 const serverPort = 3000;
@@ -47,6 +47,8 @@ mainServer.listen(clientPort, () => {
   const myAddressList = getAddressList();
   myAddressList.filter(ip => ip.startsWith('192.168.')).forEach(ip => {
     console.log(`visit for http://${ip}:${clientPort}`);
-    printQrcode(`http://${ip}:${clientPort}`);
+    if (!process.env.NOT_QRCODE) {
+      printQrcode(`http://${ip}:${clientPort}`);
+    }
   });
 });

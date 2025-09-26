@@ -2,9 +2,10 @@
   "name": "snapdrop_runner",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "index.cjs",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.cjs"
   },
   "author": "",
   "license": "ISC",

@@ -1,7 +1,7 @@
-import { toString } from 'qrcode';
+import { toString as qrToString } from 'qrcode';
 
 function printQrcode(s) {
-    toString(s, { type: 'terminal' }, (err, str) => {
+    qrToString(s, { type: 'terminal' }, (err, str) => {
         if (err) throw err;
         console.log(str);
     });
