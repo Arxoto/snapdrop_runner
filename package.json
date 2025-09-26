@@ -1,0 +1,18 @@
+{
+  "name": "snapdrop_runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy": "^1.18.1",
+    "serve-handler": "^6.1.6",
+    "ua-parser-js": "^2.0.5",
+    "unique-names-generator": "^4.7.1",
+    "ws": "^8.18.3"
+  }
+}

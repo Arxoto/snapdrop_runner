@@ -1,0 +1,3 @@
+[submodule "snapdrop"]
+	path = snapdrop
+	url = git@github.com:SnapDrop/snapdrop.git
