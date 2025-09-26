@@ -27,12 +27,13 @@ proxyWsServer.on('error', e => {
 const clientPort = 8081;
 const mainServer = http.createServer((request, response) => {
   if (request.url.startsWith('/server')) {
+    // 见项目 snapdrop 的 client/script/network.js 的 _endpoint() ，固定以 server 开头
     return proxyWsServer.web(request, response);
   }
   // You pass two more arguments for config and middleware
   // More details here: https://github.com/vercel/serve-handler#options
   return handler(request, response, {
-    "public": __dirname + "/client"
+    "public": __dirname + "/snapdrop/client" // 项目 snapdrop 的相对路径
   });
 });
 
@@ -42,11 +43,11 @@ mainServer.on('upgrade', (req, socket, head) => {
 });
 
 mainServer.listen(clientPort, () => {
-  console.log(`Running at http://localhost:${clientPort}`);
+  console.log(`Local-Browser for http://localhost:${clientPort}`);
 
   const myAddressList = getAddressList();
   myAddressList.filter(ip => ip.startsWith('192.168.')).forEach(ip => {
-    console.log(`visit for http://${ip}:${clientPort}`);
+    console.log(`Remote-Browser for http://${ip}:${clientPort}`);
     if (!process.env.NOT_QRCODE) {
       printQrcode(`http://${ip}:${clientPort}`);
     }
