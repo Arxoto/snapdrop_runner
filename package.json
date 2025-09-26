@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "http-proxy": "^1.18.1",
+    "qrcode": "^1.5.4",
     "serve-handler": "^6.1.6",
     "ua-parser-js": "^2.0.5",
     "unique-names-generator": "^4.7.1",

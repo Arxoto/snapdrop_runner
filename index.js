@@ -3,6 +3,9 @@ const http = require('http');
 const httpProxy = require('http-proxy');
 const handler = require('serve-handler');
 
+const { getAddressList } = require('./utils/address');
+const { printQrcode } = require('./utils/qrcode');
+
 // run server
 const serverPort = 3000;
 process.env.PORT = serverPort;
@@ -41,9 +44,9 @@ mainServer.on('upgrade', (req, socket, head) => {
 mainServer.listen(clientPort, () => {
   console.log(`Running at http://localhost:${clientPort}`);
 
-  const { getAddressList } = require('./utils/address');
   const myAddressList = getAddressList();
   myAddressList.filter(ip => ip.startsWith('192.168.')).forEach(ip => {
     console.log(`visit for http://${ip}:${clientPort}`);
-  })
+    printQrcode(`http://${ip}:${clientPort}`);
+  });
 });
