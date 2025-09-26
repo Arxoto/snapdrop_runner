@@ -3,8 +3,8 @@ const http = require('http');
 const httpProxy = require('http-proxy');
 const handler = require('serve-handler');
 
-const { getAddressList } = require('./utils/address.mjs');
-const { printQrcode } = require('./utils/qrcode.mjs');
+const { getAddressList } = require('./utils/address.cjs');
+const { printQrcode } = require('./utils/qrcode.cjs');
 
 // run server
 const serverPort = 3000;

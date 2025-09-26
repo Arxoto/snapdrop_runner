@@ -1,4 +1,5 @@
-import os from 'os';
+const os = require('os');
+// import os from 'os';
 
 function getAddressList() {
     let result = [];
@@ -20,4 +21,8 @@ function getAddressList() {
     return result;
 }
 
-export { getAddressList };
+module.exports = {
+    getAddressList
+}
+
+// export { getAddressList };
